@@ -53,7 +53,7 @@ public class TimeServerHandler implements Runnable {
                 System.out.println("服务器端收到命令 : " + body);
                 currentTime = "TIME".equalsIgnoreCase(body)
                         ? new Date(System.currentTimeMillis()).toString() : "BAD ORDER";
-                //Thread.sleep(5000);
+                // Thread.sleep(5000);
                 out.println(currentTime);
                 System.out.println("服务器端返回时间 : " + currentTime);
             }

@@ -31,7 +31,7 @@ public class AsyncTimeServerHandler implements Runnable {
     public AsyncTimeServerHandler(int port) {
         this.port = port;
         try {
-        	// 初始化异步套接字通道
+            // 初始化异步套接字通道
             asynchronousServerSocketChannel = AsynchronousServerSocketChannel.open();
             // 绑定端口
             asynchronousServerSocketChannel.bind(new InetSocketAddress(port));
@@ -54,7 +54,7 @@ public class AsyncTimeServerHandler implements Runnable {
     }
 
     public void doAccept() {
-    	// 使用 CompletionHandler<AsynchronousSocketChannel, ? super A> 来接受accept的消息
+        // 使用 CompletionHandler<AsynchronousSocketChannel, ? super A> 来接受accept的消息
         asynchronousServerSocketChannel.accept(this, new AcceptCompletionHandler());
     }
 
