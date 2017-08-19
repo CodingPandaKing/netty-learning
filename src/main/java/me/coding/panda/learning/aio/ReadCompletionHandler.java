@@ -18,6 +18,7 @@ import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
+import java.util.Date;
 
 /**
  * 读取处理函数
@@ -38,9 +39,9 @@ public class ReadCompletionHandler implements CompletionHandler<Integer, ByteBuf
         attachment.get(body);
         try {
             String req = new String(body, "UTF-8");
-            System.out.println("The time server receive order : " + req);
-            String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(req)
-                    ? new java.util.Date(System.currentTimeMillis()).toString() : "BAD ORDER";
+            System.out.println("服务器段收到命令 : " + req);
+            String currentTime = "TIME".equalsIgnoreCase(req)
+                    ? new Date(System.currentTimeMillis()).toString() : "BAD ORDER";
             doWrite(currentTime);
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
