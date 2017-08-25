@@ -31,7 +31,7 @@ public class AcceptCompletionHandler
         // 一个客户端，再异步的处理其他的客户端
         attachment.asynchronousServerSocketChannel.accept(attachment, this);
         ByteBuffer buffer = ByteBuffer.allocate(1024);
-        // ByteBuffer 缓冲区 用于异步的读取Chanel的数据包
+        // ByteBuffer 缓冲区 用于读取Chanel的数据包
         // ReadCompletionHandler 读取处理程序
         result.read(buffer, buffer, new ReadCompletionHandler(result));
     }

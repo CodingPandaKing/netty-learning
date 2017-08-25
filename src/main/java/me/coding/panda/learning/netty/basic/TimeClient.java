@@ -36,8 +36,9 @@ public class TimeClient {
             Bootstrap bootstrap = new Bootstrap();
 
             /**
-             * TCP_NODELAY 设置禁用Nagle算法 nginx 里面也有这个配置项 Nagle算法试图减少TCP包的数量和结构性开销, 将多个较小的包组合成较大的包进行发送.
-             * 关键是这个算法受TCP延迟确认影响, 会导致相继两次向连接发送请求包, 读数据时会有一个最多达500毫秒的延时.
+             * TCP_NODELAY 设置禁用Nagle算法 nginx 里面也有这个配置项 Nagle算法试图减少TCP包的数量和结构性开销,
+             * 将多个较小的包组合成较大的包进行发送.
+             * 关键是这个算法受TCP延迟确认影响, 读数据时会有一个最多达500毫秒的延时.
              */
 
             bootstrap.group(group).channel(NioSocketChannel.class)

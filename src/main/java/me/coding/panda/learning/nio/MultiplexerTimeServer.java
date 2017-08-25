@@ -128,6 +128,7 @@ public class MultiplexerTimeServer implements Runnable {
                 int readBytes = sc.read(readBuffer);
 
                 if (readBytes > 0) {
+                    //buffer.flip();一定得有，如果没有，就是从文件最后开始读取的
                     readBuffer.flip();
                     byte[] bytes = new byte[readBuffer.remaining()];
                     readBuffer.get(bytes);
